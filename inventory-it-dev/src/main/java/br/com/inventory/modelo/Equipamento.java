@@ -15,11 +15,11 @@ public class Equipamento {
     private String numeroSerie;
     private String tipo;
     
-    // A mágica do banco de dados relacional acontece aqui:
+    
     @ManyToOne 
     private Laboratorio laboratorio;
 
-    // Getters e Setters
+   
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public String getNumeroSerie() { return numeroSerie; }
