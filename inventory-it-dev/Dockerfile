@@ -10,7 +10,6 @@ COPY src ./src
 
 RUN mvn clean package -DskipTests
 
-
 FROM tomcat:11.0.25-jdk17-temurin
 
 RUN rm -rf /usr/local/tomcat/webapps/ROOT
