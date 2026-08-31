@@ -2,98 +2,111 @@
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+```
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Novo Equipamento</title>
+<title>Novo Equipamento</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-          rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+```
+
 </head>
 
 <body class="bg-light">
 
 <div class="container py-5">
 
-    <div class="bg-white p-4 rounded shadow">
+```
+<div class="bg-white p-4 rounded shadow">
 
-        <h2>Cadastrar Equipamento</h2>
+    <h2>Cadastrar Equipamento</h2>
 
-        <hr>
+    <hr>
 
-        <form action="${pageContext.request.contextPath}/equipamentos"
-              method="post">
+    <form action="${pageContext.request.contextPath}/equipamentos"
+          method="post">
 
-            <div class="mb-3">
+        <div class="mb-3">
 
-                <label for="numeroSerie" class="form-label">
-                    Número de Série
-                </label>
+            <label for="numeroSerie" class="form-label">
+                Número de Série
+            </label>
 
-                <input type="text"
-                       id="numeroSerie"
-                       name="numeroSerie"
-                       class="form-control"
-                       required>
+            <input type="text"
+                   id="numeroSerie"
+                   name="numeroSerie"
+                   class="form-control"
+                   required>
 
-            </div>
+        </div>
 
-            <div class="mb-3">
+        <div class="mb-3">
 
-                <label for="tipo" class="form-label">
-                    Tipo
-                </label>
+            <label for="tipo" class="form-label">
+                Tipo
+            </label>
 
-                <input type="text"
-                       id="tipo"
-                       name="tipo"
-                       class="form-control"
-                       placeholder="Ex: PC, Projetor"
-                       required>
+            <input type="text"
+                   id="tipo"
+                   name="tipo"
+                   class="form-control"
+                   placeholder="Ex: PC, Projetor"
+                   required>
 
-            </div>
+        </div>
 
-            <div class="mb-3">
+        <div class="mb-3">
 
-                <label for="laboratorio_id" class="form-label">
-                    Laboratório Alocado
-                </label>
+            <label for="laboratorio_id" class="form-label">
+                Laboratório Alocado
+            </label>
 
-                <select id="laboratorio_id"
-                        name="laboratorio_id"
-                        class="form-select"
-                        required>
+            <select id="laboratorio_id"
+                    name="laboratorio_id"
+                    class="form-select"
+                    required>
 
-                    <option value="">Selecione...</option>
+                <option value="">
+                    Selecione...
+                </option>
 
-                    <c:forEach var="lab" items="${laboratorios}">
+                <c:forEach var="lab" items="${laboratorios}">
 
-                        <option value="${lab.id}">
-                            ${lab.nome} - Bloco ${lab.bloco}
-                        </option>
+                    <option value="${lab.id}"
+                        <c:if test="${laboratorioSelecionado != null && laboratorioSelecionado.id == lab.id}">
+                            selected
+                        </c:if>>
 
-                    </c:forEach>
+                        ${lab.nome} - Bloco ${lab.bloco}
 
-                </select>
+                    </option>
 
-            </div>
+                </c:forEach>
 
-            <button type="submit" class="btn btn-primary">
-                Salvar Equipamento
-            </button>
+            </select>
 
-            <a href="${pageContext.request.contextPath}/equipamentos"
-               class="btn btn-secondary">
-                Voltar
-            </a>
+        </div>
 
-        </form>
+        <button type="submit" class="btn btn-primary">
+            Salvar Equipamento
+        </button>
 
-    </div>
+        <a href="${pageContext.request.contextPath}/laboratorios"
+           class="btn btn-secondary">
+            Voltar
+        </a>
+
+    </form>
+
+</div>
+```
 
 </div>
 
