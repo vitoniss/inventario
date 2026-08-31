@@ -18,7 +18,7 @@ import java.util.List;
 @WebServlet({"/equipamentos", "/novo-equipamento"})
 public class EquipamentoServlet extends HttpServlet {
 
-```
+
 private final EquipamentoDAO equipamentoDAO = new EquipamentoDAO();
 
 @Override
@@ -108,6 +108,5 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
             request.getContextPath() + "/equipamentos"
     );
 }
-```
 
 }
